@@ -11,7 +11,7 @@ node {
            git url: 'https://github.com/NobelFiers/cicd-sample-app.git', branch: 'main'
            sh 'pwd'
            script {
-               if (-d "tempdir" ) {
+               if ( fileExists('tempdir') ) {
                   sh 'rm -rf tempdir/; fi'
                                   } 
        		   }
