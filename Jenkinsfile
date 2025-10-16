@@ -6,7 +6,10 @@ node {
         }
     }
     stage('Build') {
-        build 'BuildSampleApp'
+           git url: 'https://github.com/NobelFiers/cicd-sample-app.git', branch: 'main'
+           sh pwd
+           sh if [ -d "tempdir" ]; then rm -rf tempdir/; fi
+           sh bash ./sample-app.sh
     }
     stage('Results') {
         build 'Test_SampleApp'
