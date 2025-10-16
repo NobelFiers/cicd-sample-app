@@ -8,4 +8,7 @@ node {
     stage('Build') {
         build 'BuildSampleApp'
     }
+    stage('Results') {
+        build 'Test_SampleApp'
+    }
 }
