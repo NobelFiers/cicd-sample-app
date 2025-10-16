@@ -7,16 +7,12 @@ node {
     			 }
 
     stage('Build') {
-	steps {
            git url: 'https://github.com/NobelFiers/cicd-sample-app.git', branch: 'main'
            sh 'pwd'
-           script {
-               if ( fileExists('tempdir') ) {
-                  sh 'rm -rf tempdir/; fi'
-                                  } 
-       		   }
+           if (fileExists('tempdir')) {
+               sh 'rm -r tempdir'
+                                      }    
 	   sh 'bash ./sample-app.sh'
-           }
 	}
 
     stage('Results') {
