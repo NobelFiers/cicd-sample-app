@@ -16,9 +16,7 @@ node {
 	}
 
     stage('Results') {
-       sh '''
- 	curl -s http://172.17.0.2:5050/ | grep You are calling me from 172.17.0.3
-	'''
+ 	sh 'curl http://172.17.0.2:5050/ | grep "You are calling me from 172.17.0.3"'
        
     		     }
 }
